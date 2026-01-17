@@ -10,8 +10,8 @@ from geometry_msgs.msg import PoseStamped, TransformStamped
 from cv_bridge import CvBridge
 
 CAMERA_MATRIX = np.array([
-    [550.56, 0.0, 326.72],
-    [0.0, 555.38, 273.2],
+    [616.97, 0.0, 328.68],
+    [0.0, 618.21, 236.6],
     [0.0, 0.0, 1.0],
 ])
 
@@ -32,9 +32,7 @@ class ArucoDetectorNode:
         self.dictionary = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_6X6_250)
         self.parameters = cv2.aruco.DetectorParameters_create()
 
-        # === TAMANHO DO MARCADOR ===
-        # Isso define a escala do mundo. Se estiver errado, o Z (profundidade) estará errado.
-        # Valor em METROS (ex: 5cm = 0.05, 21cm = 0.21)
+
         self.marker_length = rospy.get_param("~marker_length", 0.05)
 
         # Publishers
